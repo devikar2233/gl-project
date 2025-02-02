@@ -6,7 +6,9 @@ phases:
   build:
     commands:
       - echo "Current working directory:"
-      - pwd  # This will print the current working directory in CodeBuild
+      - pwd  # Check the working directory
+      - echo "Listing files in the current directory:"
+      - ls -R  # List all files to verify the folder structure
       - aws cloudformation package --template-file PDFtoTXT/cloudformation/pdftotxt.yaml --s3-bucket dev-artifacts-bucket-gl --output-template-file lambdaoutput.yaml
 artifacts:
   type: zip
